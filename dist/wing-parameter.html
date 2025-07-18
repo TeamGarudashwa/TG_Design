@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TG-APCalc</title>
+    <link rel="icon" href="/assets/images-DnPTidhm.jpeg" type="image/png">
+    <!-- <link rel="stylesheet" href="/src/style.css"> -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Urbanist:wght@400;500&display=swap"
+        rel="stylesheet">
+  <!-- Add SheetJS library for Excel export -->
+  <script src="https://cdn.sheetjs.com/xlsx-0.19.3/package/dist/xlsx.full.min.js"></script>
+  <script type="module" crossorigin src="/assets/wing-parameter-C1-URRka.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/style-hLBxd820.js">
+  <link rel="modulepreload" crossorigin href="/assets/export-utils-B9yzkw5u.js">
+  <link rel="stylesheet" crossorigin href="/assets/style-CsYIHDA9.css">
+</head>
+
+<body>
+  <header class="app-header">
+    <div class="header-content">
+      <img src="data:image/jpeg;base64,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" alt="Team Garudashwa Logo" class="logo">
+      <h1>Team Garudashwa</h1>
+      <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </header>
+
+
+    <nav class="tabs-container">
+        <div class="tabs-scroll">
+            <a href="wing-area-new.html" class="tab" data-tab="wing-area">Wing Area</a>
+            <a href="wing-parameter.html" class="tab active" data-tab="wing-parameter">Wing Parameter</a>
+            <a href="dynamic-thrust.html" class="tab" data-tab="dynamic-thrust">Dynamic Thrust</a>
+            <a href="climb-rate.html" class="tab" data-tab="climb-rate">Climb Rate</a>
+            <a href="sink-rate.html" class="tab" data-tab="sink-rate">Sink Rate</a>
+            <a href="landing-distance.html" class="tab" data-tab="landing-distance">Landing Distance</a>
+            <a href="takeoff-distance.html" class="tab" data-tab="takeoff-distance">Takeoff Distance</a>
+            <a href="vn-diagram.html" class="tab" data-tab="vn-diagram">V-N Diagram</a>
+            <a href="wheel-track.html" class="tab" data-tab="wheel-track">Wheel Track and Base</a>
+        </div>
+    </nav>
+
+    <main class="app-content">
+        <div class="calculator-container">
+            <h2>Wing Parameters Estimation</h2>
+            <div class="input-section" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="input-group">
+                    <label for="root-chord-input" title="Chord length at the wing root">Root Chord (C<sub>root</sub>,
+                        in):</label>
+                    <input type="number" id="root-chord-input" step="0.01" min="0.01" placeholder="e.g., 1.5"
+                        class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <label for="tip-chord-input" title="Chord length at the wing tip">Tip Chord (C<sub>tip</sub>,
+                        in):</label>
+                    <input type="number" id="tip-chord-input" step="0.01" min="0.01" placeholder="e.g., 0.8"
+                        class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <label for="surface-area-input" title="Total wing surface area">Surface Area (S, m²):</label>
+                    <input type="number" id="surface-area-input" step="0.01" min="0.01" placeholder="e.g., 12.5"
+                        class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <label for="wingspan-input" title="Total wingspan from tip to tip">Wingspan (b, in):</label>
+                    <input type="number" id="wingspan-input" step="0.01" min="0.1" placeholder="e.g., 10.0"
+                        class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <label for="velocity-input" title="Aircraft velocity">Velocity (V, m/s):</label>
+                    <input type="number" id="velocity-input" step="0.1" min="0" placeholder="e.g., 25.0"
+                        class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <label for="cl-input" title="Lift coefficient">Lift Coefficient (CL):</label>
+                    <input type="number" id="cl-input" step="0.01" min="0.01" placeholder="e.g., 0.8"
+                        class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <label for="clmax-input" title="Maximum lift coefficient">Max Lift Coefficient (CLmax):</label>
+                    <input type="number" id="clmax-input" step="0.01" min="0.01" placeholder="e.g., 1.5"
+                        class="form-control">
+                </div>
+            </div>
+
+            <div class="note">
+                <strong>Note:</strong> Aircraft weight is taken from the Wing Area calculator.
+            </div>
+            <div class="button-group">
+                <button id="calculate-wing" class="btn btn-primary">Calculate Parameters</button>
+                <button type="button" id="reset-wing" class="btn btn-secondary">Reset</button>
+            </div>
+
+            <div class="results-section" id="wing-results">
+                <div class="section-header">
+                    <h3>Calculated Parameters</h3>
+                    <div class="fullscreen-toggle" id="wing-fullscreen-toggle" title="Toggle fullscreen">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="results-container" id="wing-results-container">
+                    <div class="results-grid">
+                        <!-- Wing Geometry -->
+                        <div class="result-card">
+                            <h4>Wing Geometry</h4>
+                            <div class="result-item">
+                                <div class="result-label">Aspect Ratio (AR)</div>
+                                <div class="result-value" id="aspect-ratio-result">-</div>
+                                <div class="result-unit"></div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-label">Taper Ratio (TR)</div>
+                                <div class="result-value" id="taper-ratio-result">-</div>
+                                <div class="result-unit"></div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-label">Wing Loading</div>
+                                <div class="result-value" id="wing-loading-result">-</div>
+                                <div class="result-unit">kg/m²</div>
+                            </div>
+                        </div>
+
+                        <!-- Flight Dynamics -->
+                        <div class="result-card">
+                            <h4>Flight Dynamics</h4>
+                            <div class="result-item">
+                                <div class="result-label">Lift Force (L)</div>
+                                <div class="result-value" id="lift-result">-</div>
+                                <div class="result-unit">N</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-label">Load Factor (n)</div>
+                                <div class="result-value" id="load-factor-result">-</div>
+                                <div class="result-unit"></div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-label">Stall Speed (V<sub>stall</sub>)</div>
+                                <div class="result-value" id="vstall-result">-</div>
+                                <div class="result-unit">m/s</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="results-actions">
+                    <button id="copy-results" class="btn btn-secondary" title="Copy results to clipboard">
+                        <i class="fas fa-copy"></i> Copy Results
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Move scripts to the end of body and add type="module" -->
+    <script src="./src/theme.js"></script>
+    <script src="./src/wing-params.js"></script>
+</body>
+
+</html>
