@@ -1,0 +1,290 @@
+/* Input Section */
+.input-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Two equal columns */
+    gap: 1.5rem;
+    /* Space between columns */
+    margin-bottom: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.input-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color, #333);
+    font-size: 0.95rem;
+}
+
+.input-group input[type="number"] {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary-color, #4a90e2);
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+/* Make note and button group span both columns */
+.note,
+.button-group,
+.results-section,
+#flight-dynamics-results {
+    grid-column: 1 / -1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .input-section {
+        grid-template-columns: 1fr;
+        /* Single column on small screens */
+    }
+
+    .note {
+        margin-top: 0.5rem;
+    }
+}
+
+/* Dark mode adjustments */
+.dark-mode .input-group label {
+    color: #e0e0e0;
+}
+
+.dark-mode .input-group input[type="number"] {
+    background-color: var(--input-bg, #2d2d2d);
+    border-color: var(--input-border, #444);
+    color: var(--text-color, #fff);
+}
+
+.dark-mode .input-group input[type="number"]:focus {
+    border-color: var(--primary-color, #5d9cec);
+    box-shadow: 0 0 0 2px rgba(93, 156, 236, 0.3);
+}
+
+/* Results Section */
+.results-section {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem;
+    background-color: var(--bg-color);
+    border-radius: 4px;
+}
+
+.result-label {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.result-value {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    grid-column: 1 / -1;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-dark);
+}
+
+/* Dark mode styles */
+:root.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --card-bg: #2d2d2d;
+    --input-bg: #3d3d3d;
+    --input-border: #4d4d4d;
+    --primary-color: #4a90e2;
+    --secondary-color: #6c757d;
+}
+
+body.dark-mode {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.dark-mode .card {
+    background-color: var(--card-bg);
+    border-color: var(--input-border);
+}
+
+.dark-mode input[type="number"],
+.dark-mode input[type="text"],
+.dark-mode select {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border-color: var(--input-border);
+}
+
+.dark-mode .result-item {
+    background-color: var(--card-bg);
+    border-color: var(--input-border);
+}
+
+.dark-mode .app-header {
+    background-color: #121212;
+    color: white;
+}
+
+.dark-mode .tabs-container {
+    background-color: #1e1e1e;
+    border-bottom: 1px solid #333;
+}
+
+.dark-mode .tab {
+    color: #e0e0e0;
+}
+
+.dark-mode .tab.active {
+    background-color: #2d2d2d;
+    color: white;
+    border-color: #444;
+}
+
+/* Add this to wing-params.css */
+.section-divider {
+    grid-column: 1 / -1;
+    margin: 1.5rem 0 0.5rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color, #ddd);
+    color: var(--text-color, #333);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.dark-mode .section-divider {
+    border-bottom-color: #444;
+    color: #eee;
+}
+
+/* Ensure dark mode works for the new inputs */
+.dark-mode input[type="number"]:not([disabled]),
+.dark-mode input[type="text"]:not([disabled]) {
+    background-color: var(--input-bg, #3d3d3d);
+    color: var(--text-color, #fff);
+    border-color: var(--input-border, #4d4d4d);
+}
+
+/* Style the flight dynamics results section */
+#flight-dynamics-results {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color, #eee);
+}
+
+.dark-mode #flight-dynamics-results {
+    border-top-color: #444;
+}
+
+/* Make the optional note more subtle */
+.note {
+    grid-column: 1 / -1;
+    font-size: 0.9rem;
+    color: var(--secondary-text, #666);
+    margin: 0.5rem 0;
+}
+
+.dark-mode .note {
+    color: #aaa;
+}
+
+/* Chord Inputs Side by Side */
+.chord-inputs {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Responsive adjustment for chord inputs */
+@media (max-width: 768px) {
+    .chord-inputs {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+/* Input Section */
+.input-section {
+    border: 10px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Two equal columns */
+    gap: 1rem;
+    /* Space between columns */
+    margin-bottom: 1.5rem;
+}
+
+.input-group {
+    margin-bottom: 1rem;
+}
+
+/* Make sure inputs take full width of their container */
+.input-group input[type="number"] {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Responsive: Stack to single column on mobile */
+@media (max-width: 768px) {
+    .input-section {
+        grid-template-columns: 1fr;
+    }
+}
